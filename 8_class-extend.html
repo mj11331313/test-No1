@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //基于原型的继承：
+        function Parent(name){
+            this.name = name;
+        };
+        Parent.prototype.showName = function(){
+            console.log(this.name);
+        };
+        function Child(name){
+            Parent.call(this,name);
+        };
+        
+        Child.prototype=new Parent();
+        Child.prototype.constructor = Child;
+
+        var kid = new Child("Tara");
+        console.log(kid.constructor);
+        kid.showName();
+    </script>
+</body>
+</html>
