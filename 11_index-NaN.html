@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //检索数组中是否包含NaN:
+        var arr = [5, 3, 1, NaN, 8];
+        //方法一:
+        arr.forEach(function(elem, index){
+            if(isNaN(elem)){
+                console.log('有');
+            }
+        });
+        //方法二:
+        console.log(arr.includes(NaN)); //输出true
+    </script>
+</body>
+</html>
