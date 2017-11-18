@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        setTimeout(function(){ 
+            console.log(1);
+        },0); //该段代码最后执行
+
+        /* Promise.resolve(function(){
+            console.log(2);
+        }); */ //该段代码只有写成以下方式才会被执行：
+
+        //Promise的作用：对ajax的异步请求进行管理
+        
+        Promise.resolve(function(){
+            console.log(2);
+            //若请求成功，执行then方法：
+        }).then(function(data){
+            data()  //data相当于resolve方法的参数，必须调用才能执行
+            //若请求失败，执行catch方法：
+        }).catch(function(data){
+
+        });
+
+        new Promise(function(resolve){
+            console.log(3);
+        });
+
+        console.log(4);
+
+        //代码执行结果：3 4 1
+    </script>
+</body>
+</html>
