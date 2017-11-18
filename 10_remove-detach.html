@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <button id="btn">click</button>
+
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+        $(function(){
+            var $btn = $("#btn");
+            $btn.on("click",function(){
+                alert(123);
+            });
+            /*detach只移除对象，不移除事件(res为所移除的对象),
+            当需要频繁操作一个元素移除和插入时多使用该方法：
+             var res = $btn.detach();   
+            $("body").append(res); */
+
+
+            //remove同时移除对象和事件：
+            var res = $btn.remove();   
+            $("body").append(res);
+        })();
+    </script>
+</body>
+</html>
