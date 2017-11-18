@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //改变this指向的方式：
+
+        //bind：
+        function fn(a,b){
+            console.log(this);
+            console.log(a);
+            console.log(b);
+        };
+        var obj = {};
+        // fn.bind(obj,5,6); //结果：this=obj，5和6也可以输出
+        /*bind只改变this指向，不会立即调用执行函数
+        若要立即调用函数则应写为fn.bind(obj,5,6)();
+        */
+
+        //call：
+        // fn.call( obj, 5, 6); //结果同上
+        
+        //apply：
+        fn.apply( obj, [5,6] ); //结果同上
+        //apply只有两个参数，第一个是this指向，第二个是参数数组
+        /*
+        call和apply会立即执行方法，不会等待事件的发生
+        */
+    </script>
+</body>
+</html>
