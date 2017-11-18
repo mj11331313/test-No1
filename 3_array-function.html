@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr1=[5,22,13,25,17,8,7,2];
+        var arr2=[9,16,3,34,22];
+        arr1.sort();        //以字典方式对数组元素进行排序
+        console.log(arr1);  //sort方法会改变原数组
+
+        console.log(arr1.slice(2,4));//取出下标2~4的所有元素，包括2不包括4
+        console.log(arr1);      //slice方法不改变原数组
+
+        console.log(arr1.concat(arr2));//将arr2添加到arr1后面
+        console.log(arr1);      //concat方法不改变原数组
+
+        // arr1.splice(3,2,0); //从下标为2的元素开始删除2个元素(包括下标为2的元素)，并在该位置插入一个0
+        // arr1.splice(3,2);    //从下标为2的元素开始删除2个元素(包括下标为2的元素)，但不插入新元素
+        arr1.splice(3);     //下标3及以后的元素全部删除，不插入新元素
+        console.log(arr1);      //splice方法会改变原数组
+    </script>
+</body>
+</html>
