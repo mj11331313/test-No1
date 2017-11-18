@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var name = "world"; //全局变量
+        (function(){
+            var name;   //(1)局部变量,若去掉这里的var,则该name为全局变量
+            if( typeof name === "undefined"){
+                // var name = "jack"; 该行代码相当于(1)+(2)（var变量的提升定义）
+                name = "jack";  //(2)局部变量，就近原则
+                console.log("goodbye" + name);  //局部变量
+            }else{
+                console.log("hello" + name); 
+            }
+        })();
+
+
+
+        var a,b;
+        (function(){
+            console.log(a); //undefined
+            console.log(b); //undefined
+            var a=b=3 ; 
+            /*上面一行代码相当于：
+            var a=3;    定义局部变量a=3
+            b=3;       修改全局变量b=3
+            */
+            console.log(a); //3
+            console.log(b); //3
+        })();
+        console.log(a); //undefined
+        console.log(b); //3
+    </script>
+</body>
+</html>
